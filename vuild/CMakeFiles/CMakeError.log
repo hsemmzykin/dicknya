@@ -1,0 +1,52 @@
+Performing C++ SOURCE FILE Test HAVE_ARM64_CRC32C failed with the following output:
+Change Dir: /home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_79edf/fast && /usr/bin/make -f CMakeFiles/cmTC_79edf.dir/build.make CMakeFiles/cmTC_79edf.dir/build
+make[1]: Entering directory '/home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_79edf.dir/src.cxx.o
+/usr/bin/c++    -Wall -Wextra -Werror -fno-exceptions -fno-rtti -DHAVE_ARM64_CRC32C  -march=armv8-a+crc+crypto   -o CMakeFiles/cmTC_79edf.dir/src.cxx.o -c /home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: error: bad value (‘armv8-a+crc+crypto’) for ‘-march=’ switch
+cc1plus: note: valid arguments to ‘-march=’ switch are: nocona core2 nehalem corei7 westmere sandybridge corei7-avx ivybridge core-avx-i haswell core-avx2 broadwell skylake skylake-avx512 cannonlake icelake-client icelake-server cascadelake tigerlake bonnell atom silvermont slm goldmont goldmont-plus tremont knl knm x86-64 eden-x2 nano nano-1000 nano-2000 nano-3000 nano-x2 eden-x4 nano-x4 k8 k8-sse3 opteron opteron-sse3 athlon64 athlon64-sse3 athlon-fx amdfam10 barcelona bdver1 bdver2 bdver3 bdver4 znver1 znver2 btver1 btver2 native
+make[1]: *** [CMakeFiles/cmTC_79edf.dir/build.make:66: CMakeFiles/cmTC_79edf.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_79edf/fast] Error 2
+
+
+Source file was:
+
+#include <arm_acle.h>
+#include <arm_neon.h>
+
+int main() {
+  __crc32cb(0, 0); __crc32ch(0, 0); __crc32cw(0, 0); __crc32cd(0, 0);
+  vmull_p64(0, 0);
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test HAVE_STRONG_GETAUXVAL failed with the following output:
+Change Dir: /home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6fd57/fast && /usr/bin/make -f CMakeFiles/cmTC_6fd57.dir/build.make CMakeFiles/cmTC_6fd57.dir/build
+make[1]: Entering directory '/home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6fd57.dir/src.cxx.o
+/usr/bin/c++    -Wall -Wextra -Werror -fno-exceptions -fno-rtti -DHAVE_STRONG_GETAUXVAL   -o CMakeFiles/cmTC_6fd57.dir/src.cxx.o -c /home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp/src.cxx
+/home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp/src.cxx:2:10: fatal error: arm_acle.h: No such file or directory
+    2 | #include <arm_acle.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_6fd57.dir/build.make:66: CMakeFiles/cmTC_6fd57.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sasijeppy/Downloads/crc32c-main/vuild/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6fd57/fast] Error 2
+
+
+Source file was:
+
+#include <arm_acle.h>
+#include <arm_neon.h>
+#include <sys/auxv.h>
+
+int main() {
+  getauxval(AT_HWCAP);
+  return 0;
+}
+
